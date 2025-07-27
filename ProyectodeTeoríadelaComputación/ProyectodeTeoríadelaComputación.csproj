@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormatoCeldas.cs" />
+    <Compile Include="Formulas.cs" />
+    <Compile Include="GestorTabla.cs" />
     <Compile Include="Libro1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +63,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReferenciasCeldas.cs" />
     <EmbeddedResource Include="Libro1.resx">
       <DependentUpon>Libro1.cs</DependentUpon>
     </EmbeddedResource>

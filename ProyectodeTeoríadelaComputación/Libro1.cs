@@ -12,9 +12,14 @@ namespace ProyectodeTeoríadelaComputación
 {
     public partial class Libro1 : Form
     {
+        private GestorTabla gesttabla;
+        private FormatoCeldas formatcelda;
+
         public Libro1()
         {
             InitializeComponent();
+            gesttabla = new GestorTabla(DGVCeldas);
+            formatcelda = new FormatoCeldas(DGVCeldas);
         }
 
         private void Libro1_Load(object sender, EventArgs e)
@@ -41,93 +46,10 @@ namespace ProyectodeTeoríadelaComputación
 
         private void DGVCeldas_KeyDown(object sender, KeyEventArgs e)
         {
-            CopiarPegar(e);
-            Movimiento(e);
+            gesttabla.CopiarPegar(e);
+            gesttabla.Movimiento(e);
         }
 
-        private void CopiarPegar(KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.V)
-            {
-                e.Handled = true;
-
-                string clipboardText = Clipboard.GetText();
-
-                if (string.IsNullOrEmpty(clipboardText))
-                    return;
-
-                int startRow = DGVCeldas.CurrentCell.RowIndex;
-                int startCol = DGVCeldas.CurrentCell.ColumnIndex;
-
-                string[] lines = clipboardText.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
-
-                for (int i = 0; i < lines.Length; i++)
-                {
-                    string[] cells = lines[i].Split('\t');
-
-                    for (int j = 0; j < cells.Length; j++)
-                    {
-                        int rowIndex = startRow + i;
-                        int colIndex = startCol + j;
-
-                        while (DGVCeldas.Rows.Count <= rowIndex)
-                            DGVCeldas.Rows.Add();
-
-                        while (DGVCeldas.Columns.Count <= colIndex)
-                        {
-                            int colNumber = DGVCeldas.Columns.Count;
-                            string colName = ((char)('A' + colNumber % 26)).ToString();
-                            if (colNumber >= 26)
-                                colName += ((char)('A' + (colNumber / 26) - 1)).ToString();
-                            DGVCeldas.Columns.Add(colName, colName);
-                        }
-
-                        DGVCeldas[colIndex, rowIndex].Value = cells[j];
-                    }
-                }
-                return;
-            }
-        }
-
-        private void Movimiento(KeyEventArgs e)
-        {
-            int col = DGVCeldas.CurrentCell.ColumnIndex;
-            int row = DGVCeldas.CurrentCell.RowIndex;
-
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-
-                if (row == DGVCeldas.Rows.Count - 1)
-                {
-                    DGVCeldas.Rows.Add();
-                }
-
-                if (row < DGVCeldas.Rows.Count - 1)
-                {
-                    DGVCeldas.CurrentCell = DGVCeldas[col, row + 1];
-                }
-            }
-
-            else if (e.KeyCode == Keys.Tab || e.KeyCode == Keys.Right)
-            {
-                e.SuppressKeyPress = true;
-
-                if (col == DGVCeldas.Columns.Count - 1)
-                {
-                    int i = DGVCeldas.Columns.Count;
-                    string columnanomb = ((char)('A' + i % 26)).ToString();
-                    if (i >= 26) columnanomb += ((char)('A' + (i / 26) - 1)).ToString();
-
-                    DGVCeldas.Columns.Add(columnanomb, columnanomb);
-                }
-
-                if (col < DGVCeldas.Columns.Count - 1)
-                {
-                    DGVCeldas.CurrentCell = DGVCeldas[col + 1, row];
-                }
-            }
-        }
 
         private void DGVCeldas_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -148,68 +70,35 @@ namespace ProyectodeTeoríadelaComputación
 
         private void btnNegrita_Click(object sender, EventArgs e)
         {
-            if (DGVCeldas.SelectedCells.Count == 0) return;
-
-            foreach (DataGridViewCell cell in DGVCeldas.SelectedCells)
-            {
-                Font currentFont = cell.Style.Font ?? DGVCeldas.DefaultCellStyle.Font ?? DGVCeldas.Font;
-
-                FontStyle newStyle = currentFont.Style ^ FontStyle.Bold;
-
-                cell.Style.Font = new Font(currentFont, newStyle);
-            }
+            formatcelda.AplicarNegrita();
         }
 
         private void btnCursiva_Click(object sender, EventArgs e)
         {
-            if (DGVCeldas.SelectedCells.Count == 0) return;
-
-            foreach (DataGridViewCell cell in DGVCeldas.SelectedCells)
-            {
-                Font currentFont = cell.Style.Font ?? DGVCeldas.DefaultCellStyle.Font ?? DGVCeldas.Font;
-
-                FontStyle newStyle = currentFont.Style ^ FontStyle.Italic;
-
-                cell.Style.Font = new Font(currentFont, newStyle);
-            }
+            formatcelda.AplicarCursiva();
         }
 
         private void btnSubrayado_Click(object sender, EventArgs e)
         {
-            if (DGVCeldas.SelectedCells.Count == 0) return;
-
-            foreach (DataGridViewCell cell in DGVCeldas.SelectedCells)
-            {
-                Font currentFont = cell.Style.Font ?? DGVCeldas.DefaultCellStyle.Font ?? DGVCeldas.Font;
-                FontStyle newStyle = currentFont.Style ^ FontStyle.Underline;
-
-                cell.Style.Font = new Font(currentFont.FontFamily, currentFont.Size, newStyle);
-            }
+            formatcelda.AplicarSubrayado();
         }
 
         private void cmbFuentes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DGVCeldas.SelectedCells.Count == 0) return;
-
-            string selectedFont = cmbFuentes.SelectedItem.ToString();
-
-            foreach (DataGridViewCell cell in DGVCeldas.SelectedCells)
+            if (cmbFuentes.SelectedItem != null)
             {
-                Font currentFont = cell.Style.Font ?? DGVCeldas.DefaultCellStyle.Font ?? DGVCeldas.Font;
-                cell.Style.Font = new Font(selectedFont, currentFont.Size, currentFont.Style);
+                formatcelda.CambiarFuente(cmbFuentes.SelectedItem.ToString());
             }
         }
 
         private void cmbTamaño_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DGVCeldas.SelectedCells.Count == 0) return;
-
-            float size = float.Parse(cmbTamaño.SelectedItem.ToString());
-
-            foreach (DataGridViewCell cell in DGVCeldas.SelectedCells)
+            if (cmbTamaño.SelectedItem != null)
             {
-                Font currentFont = cell.Style.Font ?? DGVCeldas.DefaultCellStyle.Font ?? DGVCeldas.Font;
-                cell.Style.Font = new Font(currentFont.FontFamily, size, currentFont.Style);
+                if (float.TryParse(cmbTamaño.SelectedItem.ToString(), out float size))
+                {
+                    formatcelda.CambiarTamaño(size);
+                }
             }
         }
 
@@ -220,21 +109,8 @@ namespace ProyectodeTeoríadelaComputación
             int colIndex = DGVCeldas.CurrentCell.ColumnIndex;
             int rowIndex = DGVCeldas.CurrentCell.RowIndex;
 
-            string colLetter = ObtenerCeldaActual(colIndex);
+            string colLetter = ReferenciasCeldas.ObtenerCeldaActual(colIndex);
             txtCeldaActiva.Text = $"{colLetter}{rowIndex + 1}";
-        }
-
-        private string ObtenerCeldaActual(int colIndex)
-        {
-            int dividend = colIndex + 1;
-            string columnName = String.Empty;
-            while (dividend > 0)
-            {
-                int modulo = (dividend - 1) % 26;
-                columnName = Convert.ToChar(65 + modulo) + columnName;
-                dividend = (dividend - modulo) / 26;
-            }
-            return columnName;
         }
 
         private void txtCeldaActiva_KeyDown(object sender, KeyEventArgs e)
@@ -254,13 +130,13 @@ namespace ProyectodeTeoríadelaComputación
                 string colPart = input.Substring(0, i);
                 string rowPart = input.Substring(i);
 
-                int colIndex = ObtenerNumColumna(colPart);
+                int colIndex = ReferenciasCeldas.ObtenerNumColumna(colPart);
                 int rowIndex;
                 if (!int.TryParse(rowPart, out rowIndex)) return;
 
                 rowIndex -= 1;
 
-                int maxColIndex = ObtenerNumColumna("AA");
+                int maxColIndex = ReferenciasCeldas.ObtenerNumColumna("AA");
                 int maxRowIndex = 500 - 1;
 
                 if (colIndex < 0 || colIndex > maxColIndex)
@@ -280,7 +156,7 @@ namespace ProyectodeTeoríadelaComputación
                     int columnsToAdd = colIndex - DGVCeldas.Columns.Count + 1;
                     for (int c = 0; c < columnsToAdd; c++)
                     {
-                        string colName = ObtenerCeldaActual(DGVCeldas.Columns.Count);
+                        string colName = ReferenciasCeldas.ObtenerCeldaActual(DGVCeldas.Columns.Count);
                         DGVCeldas.Columns.Add(colName, colName);
                     }
                 }
@@ -293,17 +169,6 @@ namespace ProyectodeTeoríadelaComputación
 
                 DGVCeldas.CurrentCell = DGVCeldas[colIndex, rowIndex];
             }
-        }
-
-        private int ObtenerNumColumna(string colLetters)
-        {
-            int col = 0;
-            for (int i = 0; i < colLetters.Length; i++)
-            {
-                col *= 26;
-                col += (colLetters[i] - 'A' + 1);
-            }
-            return col - 1;
         }
 
         private void btnTXIzquierda_Click(object sender, EventArgs e)
@@ -365,9 +230,9 @@ namespace ProyectodeTeoríadelaComputación
             }
         }
 
-        private string ObtenerAlineación(DataGridViewContentAlignment alignment)
+        private string ObtenerAlineación(DataGridViewContentAlignment alineación)
         {
-            switch (alignment)
+            switch (alineación)
             {
                 case DataGridViewContentAlignment.TopLeft:
                 case DataGridViewContentAlignment.MiddleLeft:
@@ -410,11 +275,7 @@ namespace ProyectodeTeoríadelaComputación
                 if (colorDialog.ShowDialog() == DialogResult.OK)
                 {
                     Color selectedColor = colorDialog.Color;
-
-                    foreach (DataGridViewCell cell in DGVCeldas.SelectedCells)
-                    {
-                        cell.Style.BackColor = selectedColor;
-                    }
+                    formatcelda.AplicarRellenoColor(selectedColor);
                 }
             }
         }
