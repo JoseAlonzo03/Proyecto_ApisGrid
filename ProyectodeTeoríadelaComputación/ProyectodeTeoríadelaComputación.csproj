@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormatoCeldas.cs" />
-    <Compile Include="Formulas.cs" />
+    <Compile Include="FormulasOperaciones.cs" />
     <Compile Include="GestorTabla.cs" />
     <Compile Include="Libro1.cs">
       <SubType>Form</SubType>

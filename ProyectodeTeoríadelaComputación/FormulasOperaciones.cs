@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProyectodeTeoríadelaComputación
 {
-    internal class Formulas
+    internal class FormulasOperaciones
     {
+
     }
 }
