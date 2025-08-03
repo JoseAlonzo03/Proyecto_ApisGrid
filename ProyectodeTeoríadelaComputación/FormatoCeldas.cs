@@ -72,5 +72,59 @@ namespace ProyectodeTeoríadelaComputación
                 cell.Style.BackColor = color;
             }
         }
+
+        public void AplicarColorTexto(Color color)
+        {
+            foreach (DataGridViewCell cell in DGVCeldas.SelectedCells)
+            {
+                cell.Style.ForeColor = color;
+            }
+        }
+
+        public void AutoAjustarColumnas()
+        {
+            DGVCeldas.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+            int minWidth = 80;
+            foreach (DataGridViewColumn col in DGVCeldas.Columns)
+            {
+                if (col.Width < minWidth)
+                    col.Width = minWidth;
+            }
+        }
+
+        public void AutoAjustarFilas()
+        {
+            DGVCeldas.AutoResizeRows(DataGridViewAutoSizeRowsMode.AllCells);
+
+            int minHeight = 22;
+            foreach (DataGridViewRow row in DGVCeldas.Rows)
+            {
+                if (row.Height < minHeight)
+                    row.Height = minHeight;
+            }
+        }
+
+        public void AutoAjustarTodo()
+        {
+            AutoAjustarColumnas();
+            AutoAjustarFilas();
+        }
+
+        public void LimpiarCeldas(TextBox barraFormulas)
+        {
+            foreach (DataGridViewCell cell in DGVCeldas.SelectedCells)
+            {
+                cell.Value = null;
+                cell.Style.BackColor = DGVCeldas.DefaultCellStyle.BackColor;
+                cell.Style.ForeColor = DGVCeldas.DefaultCellStyle.ForeColor;
+                cell.Style.Font = DGVCeldas.DefaultCellStyle.Font;
+
+                var key = (cell.ColumnIndex, cell.RowIndex);
+                ReferenciasCeldas.RemoverFormula(key);
+            }
+
+            barraFormulas.Text = "";
+        }
     }
 }

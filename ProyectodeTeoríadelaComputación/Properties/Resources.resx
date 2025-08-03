@@ -118,16 +118,91 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Potencia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Potencia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ValorAbsoluto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ValorAbsoluto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OrdenarZA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OrdenarZA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Derecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Derecha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mínimo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mínimo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Redondeo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Redondeo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OrdenarAZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OrdenarAZ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Izquierda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Izquierda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Raíz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Raíz.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AjustarCeldas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AjustarCeldas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FondoInicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FondoInicio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Nuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Nuevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Moda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Moda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ícono" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ícono.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Centro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Centro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RellenoColor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RellenoColor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Promedio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Promedio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ContarValor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ContarValor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fecha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CentroV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CentroV.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Limpiar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Limpiar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Máximo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Máximo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ColorTexto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ColorTexto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hora" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Hora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ApisGrid_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ApisGrid_Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="txtCentro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\txtCentro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Arriba" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Arriba.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="txtDerecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\txtDerecha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ApisGrid_Logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ApisGrid_Logo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="txtIzquierda" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\txtIzquierda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Abajo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Abajo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Abrir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Abrir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -43,8 +43,8 @@ namespace ProyectodeTeoríadelaComputación
             else
             {
                 timer1.Stop();
-                Libro1 libro1 = new Libro1();
-                libro1.Show();
+                PantallaInicio pantinicio = new PantallaInicio();
+                pantinicio.Show();
                 this.Hide();
             }
         }

@@ -33,8 +33,51 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.105.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.105.0\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML.Parser, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1d5f7376574c51ec, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.Parser.2.0.0\lib\netstandard2.0\ClosedXML.Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.3.1.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml.Framework, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.Framework.3.1.1\lib\net46\DocumentFormat.OpenXml.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="RBush, Version=4.0.0.0, Culture=neutral, PublicKeyToken=c77e27b81f4d0187, processorArchitecture=MSIL">
+      <HintPath>..\packages\RBush.Signed.4.0.0\lib\net47\RBush.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,11 +87,19 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormatoCeldas.cs" />
+    <Compile Include="FormFórmulas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFórmulas.Designer.cs">
+      <DependentUpon>FormFórmulas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormulasOperaciones.cs" />
     <Compile Include="GestorTabla.cs" />
+    <Compile Include="GuardarDatos.cs" />
     <Compile Include="Libro1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,25 +112,38 @@
     <Compile Include="LogoIniciando.Designer.cs">
       <DependentUpon>LogoIniciando.cs</DependentUpon>
     </Compile>
+    <Compile Include="PantallaInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PantallaInicio.Designer.cs">
+      <DependentUpon>PantallaInicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ReferenciasCeldas.cs" />
+    <EmbeddedResource Include="FormFórmulas.resx">
+      <DependentUpon>FormFórmulas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Libro1.resx">
       <DependentUpon>Libro1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogoIniciando.resx">
       <DependentUpon>LogoIniciando.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PantallaInicio.resx">
+      <DependentUpon>PantallaInicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,16 +157,35 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Content Include="Resources\Abajo.png" />
+    <None Include="Resources\ValorAbsoluto.png" />
+    <None Include="Resources\Ícono.png" />
+    <None Include="Resources\AjustarCeldas.png" />
+    <None Include="Resources\Abrir.png" />
     <Content Include="Resources\ApisGrid_Logo.png" />
-    <Content Include="Resources\btnRellenoColor.png" />
-    <Content Include="Resources\txtAbajo.png" />
-    <Content Include="Resources\txtArriba.png" />
-    <Content Include="Resources\txtCentro.png" />
-    <Content Include="Resources\txtCentroV.png" />
-    <Content Include="Resources\txtDerecha.png" />
-    <Content Include="Resources\txtIzquierda.png" />
+    <None Include="Resources\ApisGrid_Logo2.png" />
+    <Content Include="Resources\Arriba.png" />
+    <Content Include="Resources\Centro.png" />
+    <Content Include="Resources\CentroV.png" />
+    <None Include="Resources\ColorTexto.png" />
+    <None Include="Resources\ContarValor.png" />
+    <Content Include="Resources\Derecha.png" />
+    <None Include="Resources\Fecha.png" />
+    <None Include="Resources\Hora.png" />
+    <None Include="Resources\FondoInicio.png" />
+    <Content Include="Resources\Izquierda.png" />
+    <None Include="Resources\Limpiar.png" />
+    <None Include="Resources\Máximo.png" />
+    <None Include="Resources\Mínimo.png" />
+    <None Include="Resources\Moda.png" />
+    <None Include="Resources\OrdenarAZ.png" />
+    <None Include="Resources\OrdenarZA.png" />
+    <None Include="Resources\Promedio.png" />
+    <None Include="Resources\Raíz.png" />
+    <None Include="Resources\Potencia.png" />
+    <None Include="Resources\Redondeo.png" />
+    <Content Include="Resources\RellenoColor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
